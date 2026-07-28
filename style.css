@@ -104,37 +104,65 @@ a {
 .ribbon {
   width: 100%;
   overflow: hidden;
-  white-space: nowrap;
   background: var(--olive);
   color: rgba(255, 255, 255, 0.95);
   border-top: 1px solid rgba(255, 255, 255, 0.24);
   border-bottom: 1px solid rgba(255, 255, 255, 0.24);
 }
 
-.marquee-track {
+.ribbon-track {
   display: flex;
+  align-items: center;
   width: max-content;
+  white-space: nowrap;
+  flex-wrap: nowrap;
   will-change: transform;
-  animation: marqueeLeft 18s linear infinite;
+  animation: ribbonFlow 22s linear infinite;
 }
 
-.marquee-item {
+.ribbon-group {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.ribbon-group span {
+  display: inline-block;
   flex: 0 0 auto;
-  padding: 10px 18px;
+  white-space: nowrap;
+  padding: 10px 0;
+  margin-right: 28px;
   font-size: 12px;
   font-weight: 500;
-  letter-spacing: 0.18em;
+  line-height: 1;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-@keyframes marqueeLeft {
+@keyframes ribbonFlow {
   0% {
-    transform: translate3d(0, 0, 0);
+    transform: translateX(0);
   }
   100% {
-    transform: translate3d(-50%, 0, 0);
+    transform: translateX(-50%);
   }
 }
+
+@media (max-width: 380px) {
+  .ribbon-group span {
+    font-size: 11px;
+    margin-right: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ribbon-track {
+    animation: none;
+  }
+}
+
 
 
 .eyebrow {

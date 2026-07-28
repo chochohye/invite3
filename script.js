@@ -1,21 +1,6 @@
 const revealItems = document.querySelectorAll(".reveal");
 const managedMedia = document.querySelectorAll(".managed-media");
 
-function buildMarquee(track) {
-  const text = track.dataset.text?.trim();
-  if (!text) return;
-
-  track.innerHTML = "";
-
-  const repeatCount = 14;
-  for (let i = 0; i < repeatCount; i += 1) {
-    const item = document.createElement("span");
-    item.className = "marquee-item";
-    item.textContent = text;
-    track.appendChild(item);
-  }
-}
-
 function handleMediaState(img) {
   const frame = img.closest(".media-frame");
   if (!frame) return;
@@ -68,6 +53,5 @@ function initReveal() {
   });
 }
 
-marqueeTracks.forEach(buildMarquee);
 managedMedia.forEach(handleMediaState);
 initReveal();
