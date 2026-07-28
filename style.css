@@ -114,7 +114,8 @@ a {
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: marqueeMove 22s linear infinite;
+  will-change: transform;
+  animation: marqueeLeft 18s linear infinite;
 }
 
 .marquee-item {
@@ -126,14 +127,15 @@ a {
   text-transform: uppercase;
 }
 
-@keyframes marqueeMove {
-  from {
-    transform: translateX(0);
+@keyframes marqueeLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
   }
-  to {
-    transform: translateX(-50%);
+  100% {
+    transform: translate3d(-50%, 0, 0);
   }
 }
+
 
 .eyebrow {
   margin: 0 0 10px;
