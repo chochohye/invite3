@@ -1,4 +1,3 @@
-const marqueeTracks = document.querySelectorAll(".marquee-track");
 const revealItems = document.querySelectorAll(".reveal");
 const managedMedia = document.querySelectorAll(".managed-media");
 
